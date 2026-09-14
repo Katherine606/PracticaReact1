@@ -1,7 +1,7 @@
 //import Alert from "./Components/Alert.tsx";
-import { useState } from "react";
-import AlertClose from "./Components/AlertClose.tsx";
-import Button from "./Components/Button.tsx";
+
+import Counter from "./Components/Counter.tsx";
+import InputName from "./Components/InputName.tsx";
 //import ListGroup from "./Components/ListGroup.tsx";
 
 function App() {
@@ -15,22 +15,16 @@ function App() {
      //   Holap <span style={{ fontWeight: "bold" }}>Mundo</span>
       //</Alert>
 
-  const [showAlert, setShowAlert] = useState(false);
+ // const [showAlert, setShowAlert] = useState(false);
 
   return (
-    <div>
-      {showAlert && (
-        <AlertClose onClose={() => setShowAlert(false)}>
-          Cierra
-        </AlertClose>
-      )}
+   <>
+   <InputName />
+   
+   </>
+  )
 
 
-      <Button onClick={() => setShowAlert(true)} color="danger">
-        boton
-      </Button>
-    </div>
-  );
 }
 
 export default App;
