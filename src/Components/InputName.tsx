@@ -12,9 +12,6 @@ const inputName = ()=>{
           <p>Hola, {name || "visitante"}</p>
         </div>
     )
-
-
-
 }
 
 export default inputName;
