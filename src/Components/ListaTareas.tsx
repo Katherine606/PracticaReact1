@@ -1,35 +1,33 @@
-//4 y 5. Listas Dinámicas y Estado (React)
-//Crea un componente en React que reciba una lista de tareas por props 
-//y utilice useState para guardar el índice de la tarea seleccionada y aplicarle la clase 
-// active de Bootstrap al hacer clic.
+import { useState } from "react";
 
-import { useState } from 'react';
+const ListaTareas = () =>{
 
-type Tarea = {
-    id: number;
-    Titulo: string;
-};
-
-type ListaTareasProps = {
-    tareas: Tarea[];
-};
-
-function ListaTareas({ tareas }: ListaTareasProps) {
-    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+    const [actualizado, setActualizado] = useState("");
+    const [tareas, setTareas] = useState<string[]>([]);
+    
+    const agregarTarea = ( )=>{
+       if (actualizado.trim() === "") return;
+        setTareas([...tareas, actualizado])
+       setActualizado("")
+    }
 
     return (
-        <ul className="list-group">
-            {tareas.map((t: Tarea, index: number) => (
-                <li
-                    key={t.id}
-                    className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
-                    onClick={() => setSelectedIndex(index)}
-                >
-                    {t.Titulo}
-                </li>
-            ))}
-        </ul>
-    );
+        <>
+
+        <div>
+            <ul>{tareas.map((tareas, index) => (
+                <li key={index}>{tareas}</li>))}  
+            </ul>
+
+        </div>
+        <div>
+            <input type="text" placeholder="Ingrese una tarea" value={actualizado}
+          onChange={(event) => setActualizado(event.target.value)}>
+          </input>
+            <button onClick={agregarTarea}>Agregar tarea</button>
+        </div>
+        </>
+    )
 }
 
 export default ListaTareas;
