@@ -14,17 +14,13 @@ const Counter = () => {
             setCount (count - 1)
         }
     };
-        
         return(
         <div>
             <p>Este es un contador, esta en: {count}</p>
             <button onClick={incrementar}>Incrementar</button>
             <button onClick={decrementar}>Decrementar</button>
- 
         </div>
     )
-
-
 }
 
 export default Counter;
